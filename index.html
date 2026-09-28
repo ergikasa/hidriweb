@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HIDRI — Extra Virgin Olive Oil | Elbasan, Albania</title>
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --olive-dark:#2E3B24; --olive:#3A4A2E; --near-black:#1E241A;
+  --cream:#F7F3E9; --cream-soft:#FAF6EE; --gold:#B8964F; --stone:#8C8477;
+  --steel:#5C6660;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth; scroll-padding-top:74px;}
+body{font-family:'Inter',sans-serif; background:var(--cream); color:var(--near-black); overflow-x:hidden;}
+h1,h2,h3,.serif{font-family:'Fraunces',serif; font-weight:500; color:var(--olive-dark); line-height:1.15;}
+img{max-width:100%; display:block;}
+.wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+.section{padding:100px 0;}
+@media(max-width:768px){.section{padding:60px 0;}}
+p{color:var(--stone); line-height:1.7; font-size:17px; max-width:60ch;}
+[data-lang]{display:none;}
+body.lang-en [data-lang="en"]{display:block;}
+body.lang-sq [data-lang="sq"]{display:block;}
+body.lang-en [data-lang="en"].inline, body.lang-sq [data-lang="sq"].inline{display:inline;}
+body.lang-en [data-lang="en"].flex, body.lang-sq [data-lang="sq"].flex{display:flex;}
+body.lang-en [data-lang="en"].grid, body.lang-sq [data-lang="sq"].grid{display:grid;}
+
+/* nav */
+nav{position:sticky; top:0; z-index:50; background:rgba(247,243,233,.94); backdrop-filter:blur(6px);
+  border-bottom:1px solid rgba(46,59,36,.12);}
+.navrow{max-width:1180px; margin:0 auto; padding:14px 28px; display:flex; align-items:center; justify-content:space-between; gap:20px;}
+.navlogo{display:flex; align-items:center; gap:10px; flex-shrink:0;}
+.navlogo img{height:38px; width:auto;}
+.navlogo span{font-family:'Fraunces',serif; font-size:19px; color:var(--olive-dark);}
+.navlinks{display:flex; gap:24px; font-size:14px; color:var(--olive-dark); flex-wrap:wrap;}
+.navlinks a{text-decoration:none; color:inherit; opacity:.72; transition:opacity .2s; white-space:nowrap;}
+.navlinks a:hover{opacity:1;}
+.langsw{display:flex; border:1px solid rgba(46,59,36,.3); border-radius:20px; overflow:hidden; flex-shrink:0;}
+.langsw button{border:none; background:transparent; padding:6px 14px; font-size:13px; font-weight:600; color:var(--olive-dark); cursor:pointer; opacity:.5;}
+.langsw button.active{background:var(--olive-dark); color:var(--cream-soft); opacity:1;}
+.hamburger{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px;}
+.hamburger span{width:22px; height:2px; background:var(--olive-dark);}
+.mobilemenu{display:none; flex-direction:column; gap:2px; background:var(--cream-soft); border-top:1px solid rgba(46,59,36,.12); padding:10px 28px 16px;}
+.mobilemenu.open{display:flex;}
+.mobilemenu a{padding:12px 0; font-size:15px; color:var(--olive-dark); text-decoration:none; border-bottom:1px solid rgba(46,59,36,.08);}
+@media(max-width:920px){.navlinks{display:none;} .hamburger{display:flex;}}
+@media(max-width:480px){
+  .navrow{padding:12px 18px;}
+  .wrap{padding:0 20px;}
+  .ctarow{flex-direction:column; align-items:flex-start;}
+  .btn{width:100%; text-align:center;}
+  .statsgrid{gap:18px;}
+  form{gap:12px;}
+}
+
+/* hero */
+.hero{position:relative; height:90vh; min-height:540px; display:flex; align-items:flex-end;}
+.hero img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+.hero::after{content:'';position:absolute; inset:0; background:linear-gradient(180deg, rgba(30,36,26,.15) 0%, rgba(30,36,26,.72) 100%);}
+.herocontent{position:relative; z-index:2; padding:0 28px 70px; max-width:1180px; margin:0 auto; width:100%;}
+.herocontent h1{color:var(--cream-soft); font-size:clamp(32px,5.4vw,58px); max-width:16ch;}
+.herocontent p{color:rgba(247,243,233,.85); font-size:18px; margin-top:16px; max-width:50ch;}
+.ctarow{display:flex; gap:16px; margin-top:30px; flex-wrap:wrap;}
+.btn{display:inline-block; padding:13px 28px; border-radius:2px; font-size:14.5px; text-decoration:none; transition:transform .2s;}
+.btn-primary{background:var(--cream-soft); color:var(--olive-dark);}
+.btn-primary:hover{transform:translateY(-2px);}
+.btn-ghost{border:1px solid rgba(247,243,233,.6); color:var(--cream-soft);}
+.btn-dark{background:var(--olive-dark); color:var(--cream-soft);}
+.btn-whatsapp{background:#2E3B24; color:#fff;}
+
+/* stats */
+.statsbar{background:var(--near-black); padding:56px 0;}
+.statsgrid{display:grid; grid-template-columns:repeat(4,1fr); gap:24px; text-align:center;}
+.stat .num{font-family:'Fraunces',serif; color:var(--gold); font-size:clamp(28px,3.6vw,42px);}
+.stat .label{color:rgba(247,243,233,.7); font-size:12.5px; letter-spacing:.03em; margin-top:8px;}
+@media(max-width:768px){.statsgrid{grid-template-columns:1fr 1fr;}}
+
+/* split */
+.split{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;}
+.split.reverse .split-img{order:2;}
+.split-img img{border-radius:2px;}
+.eyebrow{color:var(--gold); font-size:14px; margin-bottom:12px; font-family:'Fraunces',serif; font-style:italic;}
+.split h2{font-size:clamp(26px,3.2vw,38px); margin-bottom:18px;}
+@media(max-width:860px){.split{grid-template-columns:1fr; gap:30px;} .split.reverse .split-img{order:0;}}
+
+/* timeline */
+.timeline{margin-top:44px; border-left:2px solid rgba(184,150,79,.4); padding-left:26px; display:flex; flex-direction:column; gap:30px;}
+.tlitem .yr{font-family:'Fraunces',serif; color:var(--gold); font-size:15px;}
+.tlitem h3{font-size:18px; margin:4px 0 6px;}
+.tlitem p{font-size:15px;}
+
+/* process steps */
+.pstep-grid{display:grid; grid-template-columns:1fr; margin-top:46px;}
+.pstep{display:grid; grid-template-columns:56px 1fr; gap:22px; padding:20px 0; border-top:1px solid rgba(46,59,36,.14);}
+.pstep:last-child{border-bottom:1px solid rgba(46,59,36,.14);}
+.pnum{font-family:'Fraunces',serif; color:var(--gold); font-size:18px;}
+.pstep h3{font-size:17px; margin-bottom:4px;}
+.pstep p{font-size:14.5px; max-width:56ch;}
+.pimgs{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:44px;}
+.pimgs img{height:190px; width:100%; object-fit:cover; border-radius:2px;}
+@media(max-width:768px){.pimgs{grid-template-columns:1fr;} .pstep{grid-template-columns:36px 1fr;}}
+
+/* products */
+.pgrid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:44px;}
+.pcard{background:var(--olive-dark); border-radius:2px; padding:30px 22px; color:var(--cream-soft); display:flex; flex-direction:column; min-height:280px;}
+.pcard.flagship{background:var(--near-black);}
+.pcard .size{font-family:'Fraunces',serif; font-size:40px; color:var(--gold); margin-bottom:auto;}
+.pcard h3{color:var(--cream-soft); font-size:19px; margin-top:18px;}
+.pcard p{color:rgba(247,243,233,.65); font-size:13.5px; margin-top:8px; max-width:none;}
+.pcard a{margin-top:20px; color:var(--gold); text-decoration:none; font-size:13.5px; border-bottom:1px solid rgba(184,150,79,.5); align-self:flex-start;}
+@media(max-width:900px){.pgrid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:520px){.pgrid{grid-template-columns:1fr;}}
+
+/* quality */
+.qualitybox{background:var(--near-black); color:var(--cream-soft); border-radius:2px; padding:40px; margin-top:44px;}
+.qualitybox h3{color:var(--cream-soft); font-size:20px; margin-bottom:20px;}
+.qparams{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+.qparam .v{font-family:'Fraunces',serif; color:var(--gold); font-size:26px;}
+.qparam .l{font-size:12px; color:rgba(247,243,233,.6); margin-top:4px;}
+@media(max-width:768px){.qparams{grid-template-columns:1fr 1fr;}}
+.certgrid{display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:44px;}
+.certcard{background:var(--cream-soft); border:1px solid rgba(46,59,36,.15); border-radius:2px; overflow:hidden;}
+.certcard img{width:100%; display:block; border-bottom:1px solid rgba(46,59,36,.1);}
+.certcard .cc-body{padding:18px 20px;}
+.certcard h4{font-size:15px; color:var(--olive-dark); margin-bottom:6px;}
+.certcard p{font-size:13.5px; margin-bottom:12px;}
+.certcard a{font-size:13px; color:var(--gold); text-decoration:none; border-bottom:1px solid rgba(184,150,79,.5);}
+@media(max-width:700px){.certgrid{grid-template-columns:1fr;}}
+
+/* mill */
+.millgrid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:40px;}
+.millgrid img{height:260px; width:100%; object-fit:cover; border-radius:2px;}
+@media(max-width:700px){.millgrid{grid-template-columns:1fr;}}
+
+/* markets */
+.marketlist{display:flex; flex-wrap:wrap; gap:14px; margin-top:34px;}
+.marketchip{border:1px solid rgba(46,59,36,.25); border-radius:20px; padding:9px 20px; font-size:14px; color:var(--olive-dark);}
+
+/* CTA band */
+.ctaband{background:var(--olive); color:var(--cream-soft);}
+.ctaband2col{display:grid; grid-template-columns:1fr 1fr; gap:40px;}
+.ctaband h3{color:var(--cream-soft); font-size:22px; margin-bottom:12px;}
+.ctaband p{color:rgba(247,243,233,.75); font-size:15px;}
+@media(max-width:800px){.ctaband2col{grid-template-columns:1fr; gap:36px;}}
+
+/* forms */
+form{margin-top:26px; display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+form .full{grid-column:1/-1;}
+input,textarea{width:100%; padding:12px 14px; border:1px solid rgba(46,59,36,.25); border-radius:2px; background:var(--cream-soft); font-family:'Inter'; font-size:14.5px; color:var(--near-black);}
+textarea{min-height:100px; resize:vertical;}
+form button{grid-column:1/-1; justify-self:start; border:none; cursor:pointer;}
+@media(max-width:600px){form{grid-template-columns:1fr;}}
+
+/* contact */
+.contactgrid{display:grid; grid-template-columns:1fr 1fr; gap:60px; margin-top:44px;}
+.cinfo .row{margin-bottom:22px;}
+.cinfo .row .k{font-size:13px; color:var(--gold); font-family:'Fraunces',serif; font-style:italic;}
+.cinfo .row .v{font-size:16px; color:var(--olive-dark); margin-top:4px;}
+@media(max-width:860px){.contactgrid{grid-template-columns:1fr; gap:36px;}}
+
+/* full image */
+.fullimg{position:relative; height:60vh; min-height:380px;}
+.fullimg img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover;}
+.fullimg::after{content:'';position:absolute; inset:0; background:linear-gradient(0deg, rgba(30,36,26,.6), rgba(30,36,26,0) 55%);}
+.fulltext{position:absolute; left:0; right:0; bottom:0; z-index:2; padding:50px 28px;}
+.fulltext .wrap{padding:0;}
+.fulltext h2{color:var(--cream-soft); font-size:clamp(24px,3.6vw,36px); max-width:20ch;}
+.fulltext p{color:rgba(247,243,233,.8); margin-top:12px;}
+
+/* footer */
+footer{background:var(--near-black); color:rgba(247,243,233,.6); padding:50px 0 30px; font-size:14px;}
+.footgrid{display:flex; justify-content:space-between; flex-wrap:wrap; gap:32px; padding-bottom:30px; border-bottom:1px solid rgba(247,243,233,.12);}
+.footcol h4{color:var(--cream-soft); font-size:14px; margin-bottom:12px; font-weight:600;}
+.footcol a{display:block; color:inherit; text-decoration:none; margin-bottom:8px; opacity:.85;}
+.footbottom{padding-top:22px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:13px;}
+.footlogo img{height:34px; filter:brightness(0) invert(1) opacity(.9); margin-bottom:14px;}
+section.alt{background:var(--cream-soft);}
+.note{font-size:12.5px; color:var(--stone); font-style:italic; margin-top:10px;}
+</style>
+</head>
+<body class="lang-en">
+
+<nav>
+  <div class="navrow">
+    <div class="navlogo"><img src="assets/logo.png" alt="HIDRI"><span>HIDRI</span></div>
+    <div class="navlinks">
+      <a href="#story" data-lang="en" class="inline">Our Story</a><a href="#story" data-lang="sq" class="inline">Historia</a>
+      <a href="#mill" data-lang="en" class="inline">The Mill</a><a href="#mill" data-lang="sq" class="inline">Fabrika</a>
+      <a href="#process" data-lang="en" class="inline">From Olive to Oil</a><a href="#process" data-lang="sq" class="inline">Nga Ulliri te Vaji</a>
+      <a href="#products" data-lang="en" class="inline">Products</a><a href="#products" data-lang="sq" class="inline">Produktet</a>
+      <a href="#quality" data-lang="en" class="inline">Quality</a><a href="#quality" data-lang="sq" class="inline">Cilësia</a>
+      <a href="#contact" data-lang="en" class="inline">Contact</a><a href="#contact" data-lang="sq" class="inline">Kontakt</a>
+    </div>
+    <div style="display:flex; align-items:center; gap:14px;">
+      <div class="langsw">
+        <button id="btn-en" onclick="setLang('en')">EN</button>
+        <button id="btn-sq" onclick="setLang('sq')">SQ</button>
+      </div>
+      <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="mobilemenu" id="mobilemenu">
+    <a href="#story" onclick="toggleMenu()" data-lang="en" class="inline">Our Story</a><a href="#story" onclick="toggleMenu()" data-lang="sq" class="inline">Historia</a>
+    <a href="#mill" onclick="toggleMenu()" data-lang="en" class="inline">The Mill</a><a href="#mill" onclick="toggleMenu()" data-lang="sq" class="inline">Fabrika</a>
+    <a href="#process" onclick="toggleMenu()" data-lang="en" class="inline">From Olive to Oil</a><a href="#process" onclick="toggleMenu()" data-lang="sq" class="inline">Nga Ulliri te Vaji</a>
+    <a href="#products" onclick="toggleMenu()" data-lang="en" class="inline">Products</a><a href="#products" onclick="toggleMenu()" data-lang="sq" class="inline">Produktet</a>
+    <a href="#quality" onclick="toggleMenu()" data-lang="en" class="inline">Quality</a><a href="#quality" onclick="toggleMenu()" data-lang="sq" class="inline">Cilësia</a>
+    <a href="#contact" onclick="toggleMenu()" data-lang="en" class="inline">Contact</a><a href="#contact" onclick="toggleMenu()" data-lang="sq" class="inline">Kontakt</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <img src="assets/hero_home_page.jpg" alt="HIDRI extra virgin olive oil">
+  <div class="herocontent">
+    <div data-lang="en">
+      <h1>From Albanian Olives to Exceptional Extra Virgin Olive Oil.</h1>
+      <p>At the HIDRI factory in Elbasan, we process and package extra virgin olive oil, while also providing olive processing services for other producers. We combine the tradition of Albanian olive cultivation with controlled processing and high standards of quality.</p>
+      <div class="ctarow">
+        <a href="#story" class="btn btn-primary">Discover HIDRI</a>
+        <a href="#mill" class="btn btn-ghost">Our Production</a>
+      </div>
+    </div>
+    <div data-lang="sq">
+      <h1>Nga ullinjtë shqiptarë te vaji ekstra i virgjër i cilësisë së lartë.</h1>
+      <p>Në fabrikën HIDRI në Elbasan përpunojmë dhe paketojmë vaj ulliri ekstra të virgjër, si dhe ofrojmë përpunim të ullinjve për prodhues të tjerë. Kombinojmë traditën e ullirit shqiptar me përpunim të kontrolluar dhe standarde të larta cilësie.</p>
+      <div class="ctarow">
+        <a href="#story" class="btn btn-primary">Zbulo HIDRI</a>
+        <a href="#mill" class="btn btn-ghost">Prodhimi Ynë</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="statsbar">
+  <div class="wrap statsgrid">
+    <div class="stat"><div class="num">4+</div>
+      <div class="label" data-lang="en" class="inline">YEARS OF EXPERIENCE</div><div class="label" data-lang="sq" class="inline">VITE PËRVOJË</div></div>
+    <div class="stat"><div class="num">400+</div>
+      <div class="label" data-lang="en" class="inline">QUINTALS OF OLIVES / SEASON</div><div class="label" data-lang="sq" class="inline">KUINTALË ULLINJ / SEZON</div></div>
+    <div class="stat"><div class="num">4,000 L</div>
+      <div class="label" data-lang="en" class="inline">EVOO STORAGE CAPACITY</div><div class="label" data-lang="sq" class="inline">KAPACITET RUAJTJE VAJI</div></div>
+    <div class="stat"><div class="num">5</div>
+      <div class="label" data-lang="en" class="inline">MARKETS REACHED</div><div class="label" data-lang="sq" class="inline">TREGJE TË ARRITURA</div></div>
+  </div>
+</section>
+
+<section class="section" id="story">
+  <div class="wrap split">
+    <div>
+      <div data-lang="en">
+        <div class="eyebrow">Our Story</div>
+        <h2>Four Years. One Commitment.</h2>
+        <p>HIDRI began around four years ago in Elbasan with a simple goal: process olives properly and bottle oil worth putting our name on. Since then, growth has come from consistency — the same care applied to every season, every batch.</p>
+        <p style="margin-top:14px;">In that time, HIDRI's oil has reached customers in Albania, Kosovo, North Macedonia, Italy and China.</p>
+      </div>
+      <div data-lang="sq">
+        <div class="eyebrow">Historia Jonë</div>
+        <h2>Katër vite. Një përkushtim.</h2>
+        <p>HIDRI nisi rreth katër vite më parë në Elbasan me një qëllim të thjeshtë: përpunimin e drejtë të ullinjve dhe një vaj që ia vlen t'i vësh emrin tënd. Që atëherë, rritja ka ardhur nga konsistenca — e njëjta kujdes në çdo sezon, në çdo grumbull.</p>
+        <p style="margin-top:14px;">Gjatë kësaj kohe, vaji i HIDRI ka arritur te klientë në Shqipëri, Kosovë, Maqedoninë e Veriut, Itali dhe Kinë.</p>
+      </div>
+      <div class="timeline">
+        <div class="tlitem"><div class="yr">Year 1</div>
+          <div data-lang="en"><h3>Facility begins operating</h3><p>Processing starts in Elbasan, serving local growers.</p></div>
+          <div data-lang="sq"><h3>Fabrika fillon punën</h3><p>Përpunimi nis në Elbasan, në shërbim të fermerëve lokalë.</p></div></div>
+        <div class="tlitem"><div class="yr">Years 2–3</div>
+          <div data-lang="en"><h3>Regional growth</h3><p>HIDRI oil reaches Kosovo and North Macedonia.</p></div>
+          <div data-lang="sq"><h3>Rritje rajonale</h3><p>Vaji HIDRI arrin në Kosovë dhe Maqedoninë e Veriut.</p></div></div>
+        <div class="tlitem"><div class="yr">Year 4</div>
+          <div data-lang="en"><h3>International reach</h3><p>First shipments to Italy and China.</p></div>
+          <div data-lang="sq"><h3>Arritje ndërkombëtare</h3><p>Dërgesat e para në Itali dhe Kinë.</p></div></div>
+      </div>
+    </div>
+    <div class="split-img"><img src="assets/ullista_elb.jpg" alt="Olive groves near Elbasan"></div>
+  </div>
+</section>
+
+<section class="section alt" id="mill">
+  <div class="wrap">
+    <div data-lang="en"><div class="eyebrow">The Mill</div><h2 style="font-size:clamp(26px,3.4vw,38px); max-width:20ch;">Where the Olive Becomes Oil</h2>
+      <p>HIDRI's facility runs on Pieralisi processing equipment — a globally recognized name in olive oil technology. From reception to storage, the process happens under one roof, on the same day the olives arrive.</p></div>
+    <div data-lang="sq"><div class="eyebrow">Fabrika</div><h2 style="font-size:clamp(26px,3.4vw,38px); max-width:20ch;">Aty ku ulliri bëhet vaj</h2>
+      <p>Fabrika e HIDRI punon me pajisje përpunimi Pieralisi — një emër i njohur botërisht në teknologjinë e vajit të ullirit. Nga pritja e ullinjve te ruajtja e vajit, i gjithë procesi ndodh nën një çati, në të njëjtën ditë që mbërrijnë ullinjtë.</p></div>
+    <div class="millgrid">
+      <img src="assets/procesi_fabrika.jpg" alt="Pieralisi olive processing line">
+      <img src="assets/ekstraktimi_i_vajit.jpg" alt="Fresh olive oil extraction">
+      <img src="assets/korrja_ullinjve.jpg" alt="Olives arriving at the facility">
+      <img src="assets/ullista_elb.jpg" alt="Olive groves surrounding Elbasan">
+    </div>
+  </div>
+</section>
+
+<section class="section" id="process">
+  <div class="wrap">
+    <div data-lang="en"><div class="eyebrow">From Olive to Oil</div>
+      <h2 style="font-size:clamp(26px,3.4vw,38px); max-width:22ch;">Eleven steps, one continuous process.</h2>
+      <p>Every batch — whether it becomes HIDRI oil or is processed for a producer — follows the same path.</p></div>
+    <div data-lang="sq"><div class="eyebrow">Nga Ulliri te Vaji</div>
+      <h2 style="font-size:clamp(26px,3.4vw,38px); max-width:22ch;">Njëmbëdhjetë hapa, një proces i vetëm.</h2>
+      <p>Çdo grumbull ullinjsh — qofte për HIDRI apo për një prodhues tjetër — ndjek të njëjtin rrugëtim.</p></div>
+
+    <div class="pstep-grid" data-lang="en">
+      <div class="pstep"><div class="pnum">01</div><div><h3>Transport</h3><p>Olives are collected — HIDRI provides transport at no extra cost.</p></div></div>
+      <div class="pstep"><div class="pnum">02</div><div><h3>Reception</h3><p>Olives are received and logged at the facility.</p></div></div>
+      <div class="pstep"><div class="pnum">03</div><div><h3>Cleaning</h3><p>Leaves and foreign material are removed.</p></div></div>
+      <div class="pstep"><div class="pnum">04</div><div><h3>Washing</h3><p>Olives are washed before milling.</p></div></div>
+      <div class="pstep"><div class="pnum">05</div><div><h3>Milling</h3><p>Olives are crushed on Pieralisi milling equipment.</p></div></div>
+      <div class="pstep"><div class="pnum">06</div><div><h3>Extraction</h3><p>Oil is extracted cold, without added heat.</p></div></div>
+      <div class="pstep"><div class="pnum">07</div><div><h3>Separation</h3><p>Oil is separated from water and solids.</p></div></div>
+      <div class="pstep"><div class="pnum">08</div><div><h3>Storage</h3><p>Oil rests in stainless steel tanks, away from light and air.</p></div></div>
+      <div class="pstep"><div class="pnum">09</div><div><h3>Quality control</h3><p>Samples are checked before any oil is released.</p></div></div>
+      <div class="pstep"><div class="pnum">10</div><div><h3>Bottling</h3><p>Oil is bottled in small batches in 1L, 5L, 10L and 20L formats.</p></div></div>
+      <div class="pstep"><div class="pnum">11</div><div><h3>Distribution</h3><p>Finished product ships to customers and partner markets.</p></div></div>
+    </div>
+    <div class="pstep-grid" data-lang="sq">
+      <div class="pstep"><div class="pnum">01</div><div><h3>Transporti</h3><p>Ullinjtë mblidhen — HIDRI ofron transport pa kosto shtesë.</p></div></div>
+      <div class="pstep"><div class="pnum">02</div><div><h3>Pritja</h3><p>Ullinjtë pranohen dhe regjistrohen në fabrikë.</p></div></div>
+      <div class="pstep"><div class="pnum">03</div><div><h3>Pastrimi</h3><p>Hiqen gjethet dhe materialet e huaja.</p></div></div>
+      <div class="pstep"><div class="pnum">04</div><div><h3>Larja</h3><p>Ullinjtë lahen përpara bluarjes.</p></div></div>
+      <div class="pstep"><div class="pnum">05</div><div><h3>Bluarja</h3><p>Ullinjtë shtypen me pajisjet e bluarjes Pieralisi.</p></div></div>
+      <div class="pstep"><div class="pnum">06</div><div><h3>Ekstraktimi</h3><p>Vaji nxirret në të ftohtë, pa nxehtësi shtesë.</p></div></div>
+      <div class="pstep"><div class="pnum">07</div><div><h3>Ndarja</h3><p>Vaji ndahet nga uji dhe pjesët e ngurta.</p></div></div>
+      <div class="pstep"><div class="pnum">08</div><div><h3>Ruajtja</h3><p>Vaji qëndron në depozita inox, larg dritës dhe ajrit.</p></div></div>
+      <div class="pstep"><div class="pnum">09</div><div><h3>Kontrolli i cilësisë</h3><p>Mostrat kontrollohen përpara se vaji të lëshohet.</p></div></div>
+      <div class="pstep"><div class="pnum">10</div><div><h3>Mbushja</h3><p>Vaji mbushet në grumbuj të vegjël, në 1L, 5L, 10L dhe 20L.</p></div></div>
+      <div class="pstep"><div class="pnum">11</div><div><h3>Shpërndarja</h3><p>Produkti i gatshëm dërgohet te klientët dhe tregjet partnere.</p></div></div>
+    </div>
+
+    <div class="pimgs">
+      <img src="assets/korrja_ullinjve.jpg" alt="Hand-harvesting olives"><img src="assets/procesi_fabrika.jpg" alt="Olive milling"><img src="assets/ekstraktimi_i_vajit.jpg" alt="Oil extraction">
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="products">
+  <div class="wrap">
+    <div data-lang="en"><div class="eyebrow">Products</div><h2 style="font-size:clamp(26px,3.4vw,38px);">Choose your size.</h2>
+      <p>The same oil, however much your kitchen or business needs.</p></div>
+    <div data-lang="sq"><div class="eyebrow">Produktet</div><h2 style="font-size:clamp(26px,3.4vw,38px);">Zgjidh sasinë.</h2>
+      <p>I njëjti vaj, sipas nevojës — për shtëpi apo biznes.</p></div>
+    <div class="pgrid">
+      <div class="pcard flagship"><div class="size">1L</div>
+        <div data-lang="en"><h3>Everyday bottle</h3><p>Our flagship size, for the daily table.</p></div>
+        <div data-lang="sq"><h3>Shishja e përditshme</h3><p>Formati ynë kryesor, për tavolinën e çdo dite.</p></div>
+        <a href="#contact" data-lang="en" class="inline">Request information</a><a href="#contact" data-lang="sq" class="inline">Kërko informacion</a></div>
+      <div class="pcard"><div class="size">5L</div>
+        <div data-lang="en"><h3>Family kitchen</h3><p>For households that go through oil quickly.</p></div>
+        <div data-lang="sq"><h3>Kuzhina familjare</h3><p>Për familje që përdorin vaj shpesh.</p></div>
+        <a href="#contact" data-lang="en" class="inline">Request information</a><a href="#contact" data-lang="sq" class="inline">Kërko informacion</a></div>
+      <div class="pcard"><div class="size">10L</div>
+        <div data-lang="en"><h3>Hospitality</h3><p>For restaurants, guesthouses, larger kitchens.</p></div>
+        <div data-lang="sq"><h3>Hoteleri</h3><p>Për restorante, ambiente dhe kuzhina të mëdha.</p></div>
+        <a href="#contact" data-lang="en" class="inline">Request wholesale info</a><a href="#contact" data-lang="sq" class="inline">Kërko info shumice</a></div>
+      <div class="pcard"><div class="size">20L</div>
+        <div data-lang="en"><h3>Bulk supply</h3><p>Our largest format, for distributors.</p></div>
+        <div data-lang="sq"><h3>Furnizim me shumicë</h3><p>Formati ynë më i madh, për distributorë.</p></div>
+        <a href="#contact" data-lang="en" class="inline">Request wholesale info</a><a href="#contact" data-lang="sq" class="inline">Kërko info shumice</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="quality">
+  <div class="wrap">
+    <div data-lang="en"><div class="eyebrow">Quality</div><h2 style="font-size:clamp(26px,3.6vw,40px); max-width:18ch;">Quality Is Not a Claim. It Is a Process.</h2>
+      <p>HIDRI's oil is independently tested. Below are the actual results from Tenuis Laboratories, an accredited lab in Albania, from analysis carried out in January 2026.</p></div>
+    <div data-lang="sq"><div class="eyebrow">Cilësia</div><h2 style="font-size:clamp(26px,3.6vw,40px); max-width:18ch;">Cilësia nuk është thjesht një pretendim. Është një proces.</h2>
+      <p>Vaji i HIDRI testohet në mënyrë të pavarur. Më poshtë janë rezultatet aktuale nga Tenuis Laboratories, laborator i akredituar në Shqipëri, nga analiza e kryer në janar 2026.</p></div>
+
+    <div class="qualitybox">
+      <div data-lang="en"><h3>Lab results — sample tested 06–14 Jan 2026</h3></div>
+      <div data-lang="sq"><h3>Rezultatet e laboratorit — mostra testuar 06–14 Jan 2026</h3></div>
+      <div class="qparams">
+        <div class="qparam"><div class="v">0.52%</div><div class="l" data-lang="en" class="inline">ACIDITY (oleic acid)</div><div class="l" data-lang="sq" class="inline">ACIDITETI (acid oleik)</div></div>
+        <div class="qparam"><div class="v">7.6</div><div class="l" data-lang="en" class="inline">PEROXIDE VALUE (meqO2/kg)</div><div class="l" data-lang="sq" class="inline">NUMRI I PEROKSIDEVE (meqO2/kg)</div></div>
+        <div class="qparam"><div class="v">K232 · K270</div><div class="l" data-lang="en" class="inline">SPECTROPHOTOMETRIC INDICES TESTED</div><div class="l" data-lang="sq" class="inline">TREGUESIT SPEKTROFOTOMETRIKË TË TESTUAR</div></div>
+        <div class="qparam"><div class="v">72.2%</div><div class="l" data-lang="en" class="inline">OLEIC ACID (fatty acid profile)</div><div class="l" data-lang="sq" class="inline">ACID OLEIK (profili yndyror)</div></div>
+      </div>
+    </div>
+
+    <div class="certgrid">
+      <div class="certcard">
+        <img src="assets/cert1.jpg" alt="Certificate of analysis 1.6_26">
+        <div class="cc-body">
+          <div data-lang="en"><h4>Certificate of Analysis 1.6_26</h4><p>Acidity, peroxide value and spectrophotometric indices — Tenuis Laboratories.</p><a href="assets/cert1.pdf" download="HIDRI-certificate-1.pdf">Download PDF</a></div>
+          <div data-lang="sq"><h4>Certifikatë Analize 1.6_26</h4><p>Aciditeti, numri i peroksideve dhe treguesit spektrofotometrikë — Tenuis Laboratories.</p><a href="assets/cert1.pdf" download="HIDRI-certifikata-1.pdf">Shkarko PDF</a></div>
+        </div>
+      </div>
+      <div class="certcard">
+        <img src="assets/cert2.jpg" alt="Certificate of analysis 2.6_26">
+        <div class="cc-body">
+          <div data-lang="en"><h4>Certificate of Analysis 2.6_26</h4><p>Fatty acid methyl ester (FAME) profile — Tenuis Laboratories.</p><a href="assets/cert2.pdf" download="HIDRI-certificate-2.pdf">Download PDF</a></div>
+          <div data-lang="sq"><h4>Certifikatë Analize 2.6_26</h4><p>Profili i estereve metilike të acideve yndyrore (FAME) — Tenuis Laboratories.</p><a href="assets/cert2.pdf" download="HIDRI-certifikata-2.pdf">Shkarko PDF</a></div>
+        </div>
+      </div>
+    </div>
+    <div data-lang="en"><p class="note">Full lab reports available above. Additional certifications will be added here once provided.</p></div>
+    <div data-lang="sq"><p class="note">Raportet e plota të laboratorit janë të disponueshme më sipër. Certifikime shtesë do të shtohen sapo të vihen në dispozicion.</p></div>
+  </div>
+</section>
+
+<section class="fullimg">
+  <img src="assets/ullista_elb.jpg" alt="Elbasan olive landscape">
+  <div class="fulltext"><div class="wrap">
+    <div data-lang="en"><h2>Markets reached</h2><p>Albania · Kosovo · North Macedonia · Italy · China</p></div>
+    <div data-lang="sq"><h2>Tregje të arritura</h2><p>Shqipëri · Kosovë · Maqedonia e Veriut · Itali · Kinë</p></div>
+  </div></div>
+</section>
+
+<section class="section alt" id="contact">
+  <div class="wrap">
+    <div data-lang="en"><div class="eyebrow">Contact</div><h2 style="font-size:clamp(26px,3.4vw,38px);">Get in touch</h2></div>
+    <div data-lang="sq"><div class="eyebrow">Kontakt</div><h2 style="font-size:clamp(26px,3.4vw,38px);">Na kontaktoni</h2></div>
+    <div class="contactgrid">
+      <div class="cinfo">
+        <div class="row"><div class="k" data-lang="en" class="inline">Factory location</div><div class="k" data-lang="sq" class="inline">Vendndodhja e fabrikës</div><div class="v">Elbasan, Albania</div></div>
+        <div class="row"><div class="k" data-lang="en" class="inline">WhatsApp</div><div class="k" data-lang="sq" class="inline">WhatsApp</div><div class="v"><a href="https://wa.me/355683312213" target="_blank" style="color:var(--olive-dark);">+355 68 331 2213</a></div></div>
+        <div class="row"><div class="k" data-lang="en" class="inline">Business inquiries</div><div class="k" data-lang="sq" class="inline">Kërkesa biznesi</div><div class="v" data-lang="en" class="inline">General & wholesale requests via WhatsApp</div><div class="v" data-lang="sq" class="inline">Kërkesa të përgjithshme dhe shumice përmes WhatsApp</div></div>
+      </div>
+      <form onsubmit="return false;">
+        <input placeholder="Name / Emri" class="full">
+        <input placeholder="Email">
+        <input placeholder="Phone / Telefon">
+        <textarea placeholder="Message / Mesazh" class="full"></textarea>
+        <a href="https://wa.me/355683312213" target="_blank" class="btn btn-whatsapp" data-lang="en" class="inline">Send via WhatsApp</a>
+        <a href="https://wa.me/355683312213" target="_blank" class="btn btn-whatsapp" data-lang="sq" class="inline">Dërgo në WhatsApp</a>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footgrid">
+      <div class="footcol" style="max-width:220px;">
+        <div class="footlogo"><img src="assets/logo.png" alt="HIDRI"></div>
+        <p data-lang="en" class="inline" style="font-size:13px; color:rgba(247,243,233,.55);">Extra Virgin Olive Oil, processed and bottled in Elbasan, Albania.</p>
+        <p data-lang="sq" class="inline" style="font-size:13px; color:rgba(247,243,233,.55);">Vaj Ulliri Ekstra i Virgjër, i përpunuar dhe mbushur në Elbasan, Shqipëri.</p>
+      </div>
+      <div class="footcol">
+        <div data-lang="en"><h4>Explore</h4><a href="#products">Products</a><a href="#story">Our Story</a><a href="#mill">The Mill</a></div>
+        <div data-lang="sq"><h4>Eksploro</h4><a href="#products">Produktet</a><a href="#story">Historia</a><a href="#mill">Fabrika</a></div>
+      </div>
+      <div class="footcol">
+        <div data-lang="en"><h4>Contact</h4><a href="https://wa.me/355683312213" target="_blank">WhatsApp</a><a href="#contact">Elbasan, Albania</a></div>
+        <div data-lang="sq"><h4>Kontakt</h4><a href="https://wa.me/355683312213" target="_blank">WhatsApp</a><a href="#contact">Elbasan, Shqipëri</a></div>
+      </div>
+    </div>
+    <div class="footbottom">
+      <span>&copy; 2026 HIDRI.</span>
+      <span data-lang="en" class="inline">Natural goodness from Elbasan.</span>
+      <span data-lang="sq" class="inline">Mirësi natyrale nga Elbasani.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById('mobilemenu').classList.toggle('open');
+}
+function setLang(lang){
+  document.body.className = 'lang-' + lang;
+  document.documentElement.lang = lang;
+  document.getElementById('btn-en').classList.toggle('active', lang==='en');
+  document.getElementById('btn-sq').classList.toggle('active', lang==='sq');
+  try{localStorage.setItem('hidri-lang', lang);}catch(e){}
+}
+(function(){
+  var saved = 'en';
+  try{ saved = localStorage.getItem('hidri-lang') || 'en'; }catch(e){}
+  setLang(saved);
+})();
+</script>
+</body>
+</html>
